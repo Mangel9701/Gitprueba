@@ -18,7 +18,7 @@ public class Botones_linea : MonoBehaviour
         public string ID;
         public string Category;
     }
-    private string url = "https://prueba-ra.s3.us-west-1.amazonaws.com/botones_din.json";
+    public string url;
 
     public int N = 10;
     public GameObject[] g;
