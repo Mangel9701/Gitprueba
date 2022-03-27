@@ -236,7 +236,7 @@ public class MultipleObjectPlacement : MonoBehaviour
         m_RaycastManager = GetComponent<ARRaycastManager>();
         scanSurface = GameObject.FindWithTag("ScanSurfaceAnim");
         notification = GameObject.FindWithTag("NotificationPanel");
-        //scanSurface.SetActive(true);
+        scanSurface.SetActive(true);//1
     }
     void Update()
     {
@@ -275,8 +275,8 @@ public class MultipleObjectPlacement : MonoBehaviour
                     {
                         spawnedObject.transform.rotation = hitPose.rotation;
                     }
-                    /* spawnedObject.GetComponent<SpawningObjectDetails>().initialPlacedRotation = spawnedObject.transform.rotation;
-                     getObjectMaterials = EventSystem.current.currentSelectedGameObject.GetComponent<PrefabMaterialHandler>().ObjectMaterials;
+                    spawnedObject.GetComponent<SpawningObjectDetails>().initialPlacedRotation = spawnedObject.transform.rotation; //2
+                     /*getObjectMaterials = EventSystem.current.currentSelectedGameObject.GetComponent<PrefabMaterialHandler>().ObjectMaterials;
                      setObjectMaterials = getObjectMaterials;
                      for (int i = 0; i < getObjectMaterials.Length; i++)
                      {
@@ -562,7 +562,7 @@ public class MultipleObjectPlacement : MonoBehaviour
         initialScale = spawnedObject.transform.localScale;
         spawnedObject.GetComponent<SpawningObjectDetails>().scalePersentageIndicator.transform.localScale = spawnedObject.GetComponent<Collider>().bounds.size * 0.0015f;
         spawnedObject.GetComponent<SpawningObjectDetails>().scalePersentageIndicator.transform.position = new Vector3(0, spawnedObject.GetComponent<Collider>().bounds.size.y * 1.2f, 0);
-        spawnedObject.SetActive(true);
+        spawnedObject.SetActive(false);//3
     }
 
     /// <summary>

@@ -29,14 +29,7 @@ public class SpawningObjectDetails : MonoBehaviour
     [SerializeField]
     [Tooltip("Use lower scalling factor for increase the scalling speed")]
     int _scaleFactor = 400;
-    /*
-    [SerializeField]
-    [Tooltip("Remove tick if you dont need shadow plane feature")]
-    bool _enableShadowPlane = false;
-    [SerializeField]
-    [Tooltip("Drag and drop shadow palne here")]
-    private GameObject _shadowPlane;
-    */
+   
 
     [SerializeField]
     [Tooltip("Remove tick if you dont need touch indicator feature")]
@@ -69,12 +62,7 @@ public class SpawningObjectDetails : MonoBehaviour
     {
         get { return _enableTouchIndicator; }
     }
-/*
-    public bool enableShadowPlane
-    {
-        get { return _enableShadowPlane; }
-    }
-*/
+
     public bool enbleDragFeature
     {
         get { return _enbleDragFeature; }
@@ -139,13 +127,7 @@ public class SpawningObjectDetails : MonoBehaviour
         get { return _planeDetectionMode; }
         set { _planeDetectionMode = value; }
     }
-    /*
-    public GameObject shadowPlane
-    {
-        get { return _shadowPlane; }
-        set { _shadowPlane = value; }
-    }
-    ¨*/
+   
     public GameObject scalePersentageIndicator
     {
         get { return _scalePersentageIndicator; }
@@ -162,7 +144,6 @@ public class SpawningObjectDetails : MonoBehaviour
     {
         _initialPlacedRotation = gameObject.transform.rotation;
         _initialScale = gameObject.transform.localScale;
-        //_shadowPlane.SetActive(false);
         _scalePersentageIndicator.SetActive(false);
         _touchIndicator.SetActive(false);
     }
