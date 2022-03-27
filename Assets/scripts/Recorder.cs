@@ -5,7 +5,7 @@ using VoxelBusters.ReplayKit;
 
 public class Recorder : MonoBehaviour
 {
-    public Camera camara;
+   public Camera camara;
     int oldMask;
 
     void Start()
@@ -16,11 +16,12 @@ public class Recorder : MonoBehaviour
 
     public void Initialise()
     {
+        camara.cullingMask = 1 << 0;
         ReplayKitManager.Initialise();
     }
     public void StartRecording()
     {
-        camara.cullingMask = 1 << 0;
+        //camara.cullingMask = 1 << 0;
         ReplayKitManager.StartRecording();
         print("grabando");
     }
