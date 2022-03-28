@@ -134,20 +134,20 @@ public class TouchIndicatorHandler : MonoBehaviour
                 else
                 {
                     MultipleObjectPlacement.hideTouchIndicator();
-                    //MultipleObjectPlacement.hideScalePercentageIndicator();
+                    MultipleObjectPlacement.hideScalePercentageIndicator();//1
                 }
 
                 startTimer = true;
             }
         }
 
-            //DestroyInstaceObject();
+            DestroyInstaceObject();//2
     }
 
 
 
 
-    /*
+    //todo 3
     void DestroyInstaceObject()
     {
         if (previousHitObject != hitObject)
@@ -176,6 +176,6 @@ public class TouchIndicatorHandler : MonoBehaviour
         }
 
         
-    }*/
+    }
 
 }
