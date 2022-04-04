@@ -11,12 +11,12 @@ public class Botones_linea : MonoBehaviour
     [Serializable]
     public struct Game
     {
-        public string Name;
-        public string Description;
+        public string Nombre;
+        public string AssetB;
         public Sprite Icon;
         public string IconUrl;
-        public string ID;
-        public string Category;
+        public string Tienda;
+        public string Precio;
     }
     public string url;
 
@@ -67,11 +67,12 @@ public class Botones_linea : MonoBehaviour
         for (int i = 0; i < N; i++)
         {
             g[i] = (GameObject)Instantiate(buttontemplate, transform);
-            g[i].transform.GetChild(0).GetComponent<Text>().text = allGames[i].Name;
-            g[i].transform.GetChild(1).GetComponent<Text>().text = allGames[i].Description;//URL
-            g[i].transform.GetChild(2).GetComponent<Image>().sprite = allGames[i].Icon;
-            g[i].transform.GetChild(3).GetComponent<Text>().text = allGames[i].ID;
-            g[i].transform.GetChild(4).GetComponent<Text>().text = i + "";
+            g[i].transform.GetChild(2).GetComponent<Text>().text = allGames[i].Nombre;
+            g[i].transform.GetChild(3).GetComponent<Text>().text = allGames[i].AssetB;//URL
+            g[i].transform.GetChild(4).GetComponent<Image>().sprite = allGames[i].Icon;
+            g[i].transform.GetChild(5).GetComponent<Text>().text = allGames[i].Tienda;
+            //g[i].transform.GetChild(6).GetComponent<Text>().text = i + "";
+            g[i].transform.GetChild(6).GetComponent<Text>().text = allGames[i].Precio;
             
 
             g[i].name = i.ToString();

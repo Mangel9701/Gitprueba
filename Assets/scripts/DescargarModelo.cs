@@ -8,17 +8,17 @@ using UnityEngine.Networking;
 
 public class DescargarModelo : MonoBehaviour
 {
-    string Nombre;
+    //string Nombre;
     public float progresoDescarga;
     public GameObject modelo = null;
-    string url;
+    public string url;
     public AssetBundle bundle1;
 
 
     public void Descargar()
     {
-        url = this.transform.GetChild(1).GetComponent<Text>().text;
-        Nombre = this.transform.GetChild(4).GetComponent<Text>().text;
+        url = this.transform.GetChild(3).GetComponent<Text>().text;
+        //Nombre = this.transform.GetChild(5).GetComponent<Text>().text;
         StartCoroutine(downloadObject());
     }
 
