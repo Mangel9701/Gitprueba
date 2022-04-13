@@ -50,8 +50,6 @@ public class Botones_linea_categorias1 : MonoBehaviour
         N = allGames.Length;
         g = new GameObject[N];
 
-       Transform[] imagen_mask;
-
         for (int i = 0; i < N; i++)
         {
 

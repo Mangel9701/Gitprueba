@@ -176,5 +176,10 @@ public class Botones_linea : MonoBehaviour
         }
 
     }
+
+    public void finder()
+    {
+
+    }
 }
 

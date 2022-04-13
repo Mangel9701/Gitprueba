@@ -18,12 +18,12 @@ TagManager:
   - TileTargets
   - DetectionText
   - Placement
-  - PizzaToppingArea
   - Indicator
   - input_texto
   - botones_texto
   - tv
   - Objeto
+  - precios
   layers:
   - Default
   - TransparentFX
