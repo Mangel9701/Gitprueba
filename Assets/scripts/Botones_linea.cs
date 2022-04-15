@@ -66,7 +66,7 @@ public class Botones_linea : MonoBehaviour
 
         for (int i = 0; i < N; i++)
         {
-            g[i] = (GameObject)Instantiate(buttontemplate, transform);
+            g[i] = Instantiate(buttontemplate, transform); //(GameObject)
             g[i].transform.GetChild(2).GetComponent<Text>().text = allGames[i].Nombre;
             g[i].transform.GetChild(3).GetComponent<Text>().text = allGames[i].AssetB;//URL
             g[i].transform.GetChild(4).GetComponent<Image>().sprite = allGames[i].Icon;
@@ -177,9 +177,21 @@ public class Botones_linea : MonoBehaviour
 
     }
 
-    public void finder()
+    /*public void finder()
     {
+        String z = "Treze";
 
-    }
+        for (int i = 0; i < N; i++)
+        {
+            
+           // Debug.Log(allGames[i].Tienda);
+
+            Debug.Log(allGames[i].Tienda != z);
+
+            
+        }
+
+        
+    }*/
 }
 

@@ -24,6 +24,7 @@ TagManager:
   - tv
   - Objeto
   - precios
+  - lista_objetos
   layers:
   - Default
   - TransparentFX

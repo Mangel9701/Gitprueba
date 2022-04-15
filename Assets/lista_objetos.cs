@@ -7,7 +7,7 @@ using System;
 public class lista_objetos : MonoBehaviour
 {
     public GameObject[] ObjAGuardar;
-    public GameObject[] precio;
+    public GameObject[]precio;
     public GameObject a;
 
     
@@ -16,9 +16,7 @@ public class lista_objetos : MonoBehaviour
 
     void Update()
     {
-        //con_colliders
-
-        
+ 
 
     }
 
@@ -35,8 +33,8 @@ public class lista_objetos : MonoBehaviour
         {
             Debug.Log("listo");
             a = Instantiate(textos, transform);
-
-            a.GetComponent<Text>().text = ObjAGuardar[i].name + ":    " + precio[i].GetComponent<Text>().text;
+            a.tag = "lista_objetos";
+            a.GetComponent<Text>().text = ObjAGuardar[i].name + ":     $" + precio[i].GetComponent<Text>().text;
 
         }
 
@@ -47,18 +45,15 @@ public class lista_objetos : MonoBehaviour
 
     public void vaciar()
     {
-      /* foreach (Transform child in this.transform)
-        {
-            GameObject.Destroy(child.gameObject);
-        }*/
-        for (int i = 0; i < N; i++)
-        {
-            GameObject.Destroy(textos.gameObject);
 
+        GameObject[] lista = GameObject.FindGameObjectsWithTag("lista_objetos");
+
+        foreach (GameObject a in lista)
+        {
+            GameObject.Destroy(a);
         }
 
-
-
+        textos.SetActive(true);
 
 
     }
