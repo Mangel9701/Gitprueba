@@ -2,9 +2,9 @@ using System.Collections;
 using System.IO;
 using UnityEngine;
 
-public class screenshot : MonoBehaviour
+public class screenshot1 : MonoBehaviour
 {
-    public GameObject FLECHA;
+    public GameObject UI;
 
     private IEnumerator ScreenShoot()
     {
@@ -20,14 +20,14 @@ public class screenshot : MonoBehaviour
 
         Destroy(texture);
 
-        FLECHA.SetActive(true);
+        UI.SetActive(true);
         
 
     }
 
-    public void TakeScreenShot_list()
+    public void TakeScreenShot()
     {
-        FLECHA.SetActive(false);
+        UI.SetActive(false);
         StartCoroutine(ScreenShoot());
     }
 }
