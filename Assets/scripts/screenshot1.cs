@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class screenshot1 : MonoBehaviour
 {
-    public GameObject UI;
+    public GameObject UI1;
 
-    private IEnumerator ScreenShoot()
+    private IEnumerator ScreenShoot1()
     {
         yield return new WaitForEndOfFrame();
         Texture2D texture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
@@ -20,14 +20,14 @@ public class screenshot1 : MonoBehaviour
 
         Destroy(texture);
 
-        UI.SetActive(true);
-        
+        UI1.SetActive(true);
+
 
     }
 
     public void TakeScreenShot()
     {
-        UI.SetActive(false);
-        StartCoroutine(ScreenShoot());
+        UI1.SetActive(false);
+        StartCoroutine(ScreenShoot1());
     }
 }
