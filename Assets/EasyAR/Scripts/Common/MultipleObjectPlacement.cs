@@ -198,11 +198,6 @@ public class MultipleObjectPlacement : MonoBehaviour
     /// </summary>
     GameObject notification;
 
-    /// <summary>
-    /// materials of the spawned object
-    /// </summary>
-   /* public static Material[] getObjectMaterials;
-    public static Material[] setObjectMaterials;*/
 
     string detectedPlaneType = "";
 
@@ -222,20 +217,26 @@ public class MultipleObjectPlacement : MonoBehaviour
     /// </summary>
     bool hideIndicator = false;
 
+    public bool Inicializado = false;
+
     /// <summary>
     /// AR Plane Manager Reference
     /// </summary>
     ARPlaneManager aRPlaneManager;
 
 
+    public void Inicializar()
+    {
+        Inicializado = true;
+    }
     void Start()
     {
         InitialData._singleObjectPlacement = false;
         aRPlaneManager = FindObjectOfType<ARPlaneManager>();
         ArCamera = GameObject.FindWithTag("MainCamera");
         m_RaycastManager = GetComponent<ARRaycastManager>();
-        scanSurface = GameObject.FindWithTag("ScanSurfaceAnim");
         notification = GameObject.FindWithTag("NotificationPanel");
+        scanSurface = GameObject.FindWithTag("ScanSurfaceAnim");
         scanSurface.SetActive(true);//1
     }
     void Update()
@@ -247,7 +248,7 @@ public class MultipleObjectPlacement : MonoBehaviour
             {
                 var hitPose = s_Hits[0].pose;
                 if (_PointerIndicator == null) { _PointerIndicator = Instantiate(PointerIndicator); }
-                if (_PointerIndicator.activeSelf == false && !hideIndicator) { _PointerIndicator.SetActive(true); }
+                if (_PointerIndicator.activeSelf == false && !hideIndicator && Inicializado==true) { _PointerIndicator.SetActive(true); }
                 _PointerIndicator.transform.position = hitPose.position;
                 _PointerIndicator.transform.rotation = hitPose.rotation;
                 scanSurface.SetActive(false);
@@ -276,13 +277,7 @@ public class MultipleObjectPlacement : MonoBehaviour
                         spawnedObject.transform.rotation = hitPose.rotation;
                     }
                     spawnedObject.GetComponent<SpawningObjectDetails>().initialPlacedRotation = spawnedObject.transform.rotation; //2
-                     /*getObjectMaterials = EventSystem.current.currentSelectedGameObject.GetComponent<PrefabMaterialHandler>().ObjectMaterials;
-                     setObjectMaterials = getObjectMaterials;
-                     for (int i = 0; i < getObjectMaterials.Length; i++)
-                     {
-                         getObjectMaterials[i].shader = (Shader)Resources.Load("StandradShader", typeof(Shader));
-                         getObjectMaterials[i].color = new Color32(255, 255, 255, 255);
-                     }*/
+                     
 
                     previousRotation = hitPose.rotation;
                     previousPosition = hitPose.position;
