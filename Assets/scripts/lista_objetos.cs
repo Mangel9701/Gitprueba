@@ -34,7 +34,7 @@ public class lista_objetos : MonoBehaviour
             Debug.Log("listo");
             a = Instantiate(textos, transform);
             a.tag = "lista_objetos";
-            a.GetComponent<Text>().text = ObjAGuardar[i].name + ":     $" + precio[i].GetComponent<Text>().text;
+            a.GetComponent<Text>().text = ObjAGuardar[i].name.Replace("(Clone)","") + ":     $" + precio[i].GetComponent<Text>().text;
 
         }
 
