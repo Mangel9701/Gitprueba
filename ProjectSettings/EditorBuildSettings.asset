@@ -6,11 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/definitiva_integrada.unity
-    guid: 5b1b7267b659ad449b59ad245eb108ef
-  - enabled: 1
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Scenes/PRIOR.unity
     guid: 4ce0566d610cb884b91abb0416c84086
+  - enabled: 1
+    path: Assets/Scenes/PRIOR_IOS.unity
+    guid: 7db5dc3a98a0f7340b78e98b156e4290
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 744b813df90924c169af73489b8325de,
       type: 2}
