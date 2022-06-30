@@ -55,7 +55,7 @@ public class Botones_linea : MonoBehaviour
     private void Update()
     {
         //pos_y_panel = position_panel.posicionY;
-        StartCoroutine(updateGamesIcones());
+       // StartCoroutine(updateGamesIcones());
     }
 
     void DrawUI()
@@ -83,13 +83,107 @@ public class Botones_linea : MonoBehaviour
 
     }
 
+    /* IEnumerator GetGames()
+     {
+         UnityWebRequest request = UnityWebRequest.Get(url);
+         request.chunkedTransfer = false;
+         yield return request.Send();
+
+         if (request.isNetworkError) { }
+
+         else
+         {
+             if (request.isDone)
+             {
+                 allGames = JsonHelper.GetArray<Game>(request.downloadHandler.text);
+
+                 StartCoroutine(GetGameIcones());
+             }
+         }
+     }
+
+     IEnumerator GetGameIcones()
+     {
+
+         alreadyDone = new int[allGames.Length];
+
+         for (int i = 0; i < quantity; i++)
+         {
+             WWW w = new WWW(allGames[i].IconUrl);
+             yield return w;
+
+             if (w.error != null)
+             {
+                 allGames[i].Icon = defaultIcon;
+             }
+             else
+             {
+                 if (w.isDone)
+                 {
+                     Texture2D tx = w.texture;
+                     allGames[i].Icon = Sprite.Create(tx, new Rect(0f, 0f, tx.width, tx.height), Vector2.zero, 100f);
+                 }
+             }
+         }
+         DrawUI();
+
+     }
+
+     IEnumerator updateGamesIcones()
+     {
+         int cantidad = (int)(pos_y_panel / 186);//186
+         updatedQuantity = quantity + (cantidad * 4);//2
+         if (updatedQuantity > allGames.Length)
+         {
+             updatedQuantity = allGames.Length;
+         }
+
+         if (updatedQuantity > actualQuantity & cantidad != 0)
+         {
+             actualQuantity = updatedQuantity;
+             for (int i = quantity; i < updatedQuantity; i++)
+             {
+                 if (allGames[i].Icon == null)
+                 {
+                     WWW w = new WWW(allGames[i].IconUrl);
+                     yield return w;
+
+                     if (w.error != null)
+                     {
+                         allGames[i].Icon = defaultIcon;
+                         Debug.Log(w.error);
+                     }
+                     else
+                     {
+                         if (w.isDone)
+                         {
+                             Texture2D tx = w.texture;
+                             allGames[i].Icon = Sprite.Create(tx, new Rect(0f, 0f, tx.width, tx.height), Vector2.zero, 100f);
+                         }
+                     }
+                 }
+             }
+         }
+         AddToUI(actualQuantity);
+
+     }
+
+     void AddToUI(int actualQuantity)
+     {
+         for (int i = 0; i < actualQuantity; i++)
+         {
+             g[i].transform.GetChild(4).GetComponent<Image>().sprite = allGames[i].Icon;
+         }
+
+     }*/
+
     IEnumerator GetGames()
     {
         UnityWebRequest request = UnityWebRequest.Get(url);
         request.chunkedTransfer = false;
         yield return request.Send();
 
-        if (request.isNetworkError) { }
+        if (request.isNetworkError) { Debug.Log("Network Error"); }
 
         else
         {
@@ -102,12 +196,13 @@ public class Botones_linea : MonoBehaviour
         }
     }
 
+    //obtiene los sprites y los dibujo en los botones
     IEnumerator GetGameIcones()
     {
 
-        alreadyDone = new int[allGames.Length];
 
-        for (int i = 0; i < quantity; i++)
+
+        for (int i = 0; i < allGames.Length; i++)
         {
             WWW w = new WWW(allGames[i].IconUrl);
             yield return w;
@@ -125,57 +220,16 @@ public class Botones_linea : MonoBehaviour
                 }
             }
         }
+
+        //Dibuja cada boton
         DrawUI();
 
     }
 
-    IEnumerator updateGamesIcones()
-    {
-        int cantidad = (int)(pos_y_panel / 186);
-        updatedQuantity = quantity + (cantidad * 2);
-        if (updatedQuantity > allGames.Length)
-        {
-            updatedQuantity = allGames.Length;
-        }
 
-        if (updatedQuantity > actualQuantity & cantidad != 0)
-        {
-            actualQuantity = updatedQuantity;
-            for (int i = quantity; i < updatedQuantity; i++)
-            {
-                if (allGames[i].Icon == null)
-                {
-                    WWW w = new WWW(allGames[i].IconUrl);
-                    yield return w;
 
-                    if (w.error != null)
-                    {
-                        allGames[i].Icon = defaultIcon;
-                        Debug.Log(w.error);
-                    }
-                    else
-                    {
-                        if (w.isDone)
-                        {
-                            Texture2D tx = w.texture;
-                            allGames[i].Icon = Sprite.Create(tx, new Rect(0f, 0f, tx.width, tx.height), Vector2.zero, 100f);
-                        }
-                    }
-                }
-            }
-        }
-        AddToUI(actualQuantity);
 
-    }
 
-    void AddToUI(int actualQuantity)
-    {
-        for (int i = 0; i < actualQuantity; i++)
-        {
-            g[i].transform.GetChild(2).GetComponent<Image>().sprite = allGames[i].Icon;
-        }
-
-    }
 
 }
 
